@@ -1,91 +1,55 @@
 # 📊 LeetMetrics
 
-> **Turn your LeetCode profile into meaningful metrics.**
+A simple JavaScript practice project that fetches and displays **LeetCode user statistics** using the LeetCode GraphQL API.
 
-LeetMetrics is a lightweight web application that lets you enter a **LeetCode username** and instantly view important problem-solving statistics in a clean and focused interface.
+## ✨ Features
 
-Instead of repeatedly checking different parts of your LeetCode profile, LeetMetrics brings the useful information together in one place.
+- 🔍 Search LeetCode users by username
+- 📊 Display problem-solving statistics
+- 🟢 Easy, 🟡 Medium & 🔴 Hard problem counts
+- 📈 Display user submission data
+- ⚡ Dynamic data fetching
+- ❌ Basic error handling
 
----
+## 🛠️ Built With
 
-## ✨ What is LeetMetrics?
+- HTML
+- CSS
+- JavaScript
+- GraphQL
+- LeetCode API
 
-LeetMetrics is built around a simple idea:
+## 🚀 How to Run
 
-**Enter a username → Fetch the data → Understand your progress.**
+1. Clone the repository:
 
-The application communicates with the **LeetCode GraphQL API** to retrieve user-related problem-solving data and transforms that information into readable metrics.
+```bash
+git clone https://github.com/YOUR-USERNAME/LeetMetrics.git
+```
 
-It was built with a focus on:
+2. Open the project folder.
+3. Open `index.html` in your browser.
 
-- 🎯 Simplicity
-- ⚡ Fast interaction
-- 📊 Data visualization
-- 🧩 Clean UI
-- 🛠️ Practical JavaScript implementation
+Or use **Live Server** in VS Code.
 
----
+## 📚 What I Practiced
 
-## 🚀 Features
+This project helped me practice:
 
-### 👤 LeetCode Profile Search
-Enter any valid LeetCode username and search for the corresponding profile data.
+- JavaScript `fetch()`
+- `async/await`
+- API requests
+- GraphQL queries
+- JSON data handling
+- DOM manipulation
+- Error handling
 
-### 📊 Problem Statistics
-View problem-solving statistics across different difficulty levels:
+## 📌 Note
 
-- 🟢 Easy
-- 🟡 Medium
-- 🔴 Hard
-- 📚 Total Questions
+LeetCode's GraphQL endpoint may have browser **CORS/network restrictions**, so API requests may not work directly in every environment.
 
-### 📈 Submission Metrics
-Get useful information about the user's submission activity and progress.
+## 👨‍💻 Author
 
-### 🔎 Username Validation
-The application handles invalid or unavailable usernames instead of silently displaying incorrect information.
+**Piyush**
 
-### ⚡ Dynamic Data
-Statistics are fetched when the user searches rather than relying on hardcoded values.
-
-### 🎨 Clean Interface
-A minimal interface keeps the focus on the data instead of unnecessary visual clutter.
-
-### ❌ Error Handling
-Network/API failures are handled gracefully and communicated to the user.
-
----
-
-## 🧠 How It Works
-
-The application follows a simple data flow:
-
-```text
-              ┌─────────────────┐
-              │  Enter Username │
-              └────────┬────────┘
-                       │
-                       ▼
-              ┌─────────────────┐
-              │  Search Button  │
-              └────────┬────────┘
-                       │
-                       ▼
-              ┌─────────────────┐
-              │ GraphQL Request │
-              └────────┬────────┘
-                       │
-                       ▼
-              ┌─────────────────┐
-              │  LeetCode Data  │
-              └────────┬────────┘
-                       │
-                       ▼
-              ┌─────────────────┐
-              │ Process Response │
-              └────────┬────────┘
-                       │
-                       ▼
-              ┌─────────────────┐
-              │ Display Metrics │
-              └─────────────────┘
+> Built as a JavaScript practice project 🚀
