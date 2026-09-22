@@ -1,104 +1,386 @@
-*{
+/* ====================================================
+   LeetMetrics — Warm Editorial Design
+   All existing IDs, classes, and JS selectors preserved.
+   The --progress-degree conic-gradient system is intact.
+   ==================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+/* ---------- Design Tokens ---------- */
+:root {
+    --bg-page: #F3F1EC;
+    --bg-card: #FFFDF8;
+    --bg-input: #FAFAF7;
+
+    --text-primary: #252525;
+    --text-secondary: #73706A;
+    --text-muted: #A09B93;
+
+    --border: #E3DED4;
+    --border-hover: #CCC7BC;
+
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+              0 4px 16px rgba(0, 0, 0, 0.03);
+
+    --btn-bg: #35483C;
+    --btn-bg-hover: #2A3A30;
+    --btn-bg-active: #233027;
+
+    --easy: #4F8A68;
+    --easy-track: #E8EDE9;
+
+    --medium: #C28A3D;
+    --medium-track: #F0E8DA;
+
+    --hard: #B65F5A;
+    --hard-track: #F0E3E2;
+
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: 0.2s ease;
+}
+
+/* ---------- Reset ---------- */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-body{
-    background-color: rgb(89, 90, 106);
-    color:white;
-    height: 100vh;
+/* ---------- Body ---------- */
+body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.container{
+/* ---------- Main Card ---------- */
+.container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    background-color: rgb(69, 64, 64);
-    padding: 20px;
-    border-radius: 5px;
-    width: 50%;
-    max-width: 600px;
+    gap: 2rem;
+    background-color: var(--bg-card);
+    padding: 2.5rem 2.5rem 2.25rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    width: 90%;
+    max-width: 540px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease both;
 }
 
-h1{
-    font-size: 2rem;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.user-container{
+/* ---------- Title ---------- */
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+/* ---------- User Section ---------- */
+.user-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.5rem;
     justify-content: start;
 }
 
-.user-input-container{
+.user-container p {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.01em;
+}
+
+.user-input-container {
     display: flex;
     justify-content: space-between;
+    gap: 0.5rem;
 }
 
-#user-input{
-    width: 80%;
-    padding: 0.4rem;
-    border-radius: 5px;
+/* ---------- Input ---------- */
+#user-input {
+    width: 100%;
+    flex: 1;
+    padding: 0.6rem 0.85rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color var(--transition);
 }
 
-#search-btn{
-    padding: 0.4rem;
-    border-radius: 5px;
+#user-input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
 }
 
-.circle{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 4px solid #299f5d;
-    position: relative;
+#user-input:hover {
+    border-color: var(--border-hover);
+}
+
+#user-input:focus {
+    border-color: #A8A29E;
+}
+
+/* ---------- Search Button ---------- */
+#search-btn {
+    padding: 0.6rem 1.3rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    background-color: var(--btn-bg);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    transition: background-color var(--transition),
+                transform var(--transition);
+}
+
+#search-btn:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+#search-btn:active {
+    background-color: var(--btn-bg-active);
+    transform: scale(0.98);
+}
+
+#search-btn:focus-visible {
+    outline: 2px solid var(--btn-bg);
+    outline-offset: 2px;
+}
+
+#search-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ---------- Stats Section ---------- */
+.stats-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1 rem;
-    color: white;
-    font-weight: 700;
-    background: conic-gradient(#299f5d var(--progress-degree, 0%), #283a2e 0%);
     flex-direction: column;
-}
-.circle span{
-    position: relative;
-    z-index: 2;
+    gap: 1.75rem;
 }
 
-.progress{
+/* ---------- Progress Row ---------- */
+.progress {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1.25rem;
 }
 
-.stats-cards{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+/* ---------- Progress Item ---------- */
+.progress-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--transition);
+}
+
+.progress-item:hover {
+    transform: translateY(-2px);
+}
+
+/* ====================================================
+   CIRCLE (Progress Ring)
+   The conic-gradient uses --progress-degree set by JS.
+   The ::after creates the ring cutout.
+   Each difficulty overrides the conic-gradient colors.
+   ==================================================== */
+.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 700;
+
+    /* default — overridden per-difficulty */
+    background: conic-gradient(var(--easy) var(--progress-degree, 0%), var(--easy-track) 0%);
+
+    transition: box-shadow var(--transition);
+}
+
+/* Inner cutout → creates the ring */
+.circle::after {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    z-index: 1;
+}
+
+/* Text inside circles */
+.circle span {
+    position: relative;
+    z-index: 2;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.circle p {
+    position: relative;
+    z-index: 2;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ---------- Per-Difficulty Ring Colors ---------- */
+
+/* EASY */
+.easy-progress {
+    background: conic-gradient(var(--easy) var(--progress-degree, 0%), var(--easy-track) 0%);
+}
+
+/* MEDIUM */
+.medium-progress {
+    background: conic-gradient(var(--medium) var(--progress-degree, 0%), var(--medium-track) 0%);
+}
+
+/* HARD */
+.hard-progress {
+    background: conic-gradient(var(--hard) var(--progress-degree, 0%), var(--hard-track) 0%);
+}
+
+/* Subtle hover — no glow, just slight shadow */
+.easy-progress:hover {
+    box-shadow: 0 2px 12px rgba(79, 138, 104, 0.12);
+}
+.medium-progress:hover {
+    box-shadow: 0 2px 12px rgba(194, 138, 61, 0.12);
+}
+.hard-progress:hover {
+    box-shadow: 0 2px 12px rgba(182, 95, 90, 0.12);
+}
+
+/* ---------- Stats Cards ---------- */
+.stats-cards {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 0.6rem;
     justify-content: space-evenly;
 }
 
-h4{
-    font-size: 1rem;
+.card {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border);
+    width: 46%;
+    max-width: 230px;
+    padding: 0.75rem 0.9rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    min-height: 3.25rem;
+    transition: border-color var(--transition);
 }
 
-.card{
-    background-color: rgb(230, 146, 44);
-    width: 40%;
-    max-width: 290px;
-    padding: 10px;
-    border-radius: 10px;
+.card:hover {
+    border-color: var(--border-hover);
+}
+
+h4 {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.card p {
     font-size: 1rem;
-    min-height: 4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.75rem 1.25rem 1.5rem;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .circle {
+        width: 105px;
+        height: 105px;
+    }
+
+    .circle::after {
+        inset: 8px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 1.5rem 1rem 1.25rem;
+    }
+
+    .circle {
+        width: 90px;
+        height: 90px;
+    }
+
+    .circle::after {
+        inset: 7px;
+    }
+
+    .circle span {
+        font-size: 0.78rem;
+    }
+
+    .circle p {
+        font-size: 0.5rem;
+    }
 }
